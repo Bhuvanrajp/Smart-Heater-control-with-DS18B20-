@@ -1,10 +1,10 @@
 # DS18B20 Temperature Sensor Project
 
-This project demonstrates how to interface a **DS18B20 digital temperature sensor** with an Arduino. The circuit and code were created using the Wokwi online simulator.
+This project demonstrates how to interface a **DS18B20 digital temperature sensor** with an ESP32. The circuit and code were created using the Wokwi online simulator.
 
 ## 🧰 Components
 
-- Arduino UNO
+- ESP32
 - DS18B20 Temperature Sensor
 - 4.7kΩ Resistor (pull-up)
 - Jumper wires
@@ -21,7 +21,7 @@ https://wokwi.com/projects/430583620731284481
 2. Install the required libraries listed in `libraries.txt`:
    - OneWire
    - DallasTemperature
-3. Upload the code to your Arduino.
+3. Upload the code to your ESP32.
 4. Open Serial Monitor to view temperature readings.
 
 ## 🖼 Diagram
