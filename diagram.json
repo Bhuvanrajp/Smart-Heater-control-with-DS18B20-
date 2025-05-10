@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -48, "left": 62.44, "attrs": {} },
+    { "type": "board-ds18b20", "id": "temp1", "top": -145.13, "left": -82.32, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 4.8,
+      "left": -48.55,
+      "rotate": 90,
+      "attrs": { "value": "4700" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 6, "left": -159.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -55.2,
+      "left": 261,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 150.4,
+      "left": 216.8,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "temp1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "temp1:DQ", "esp:4", "green", [ "v192", "h230.4" ] ],
+    [ "temp1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "r1:2", "temp1:DQ", "green", [ "h0" ] ],
+    [ "r1:1", "temp1:VCC", "green", [ "h0" ] ],
+    [ "led1:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "esp:18", "bz1:2", "green", [ "h0" ] ],
+    [ "bz1:1", "esp:GND.2", "black", [ "h-96", "v-48" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-172.8", "v-76.8" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-163.2", "v-95.9" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h-28.8", "v-182.2" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h-38.4", "v-220.5" ] ],
+    [ "esp:5", "led1:A", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
